@@ -1,0 +1,21 @@
+{
+  "api": "4",
+  "type": "anime",
+  "name": "DM6900",
+  "version": "1.0",
+  "muliSources": true,
+  "useWebview": true,
+  "useNativePlayer": true,
+  "usePost": true,
+  "useLegacyParser": false,
+  "adBlocker": false,
+  "userAgent": "",
+  "baseURL": "http://www.dm6900.com",
+  "searchURL": "http://www.dm6900.com/index.php/vod/search2.html",
+  "searchList": "//ul[@id='result']/li",
+  "searchName": ".//p[@class='name']",
+  "searchResult": ".//a[@class='li-hv']",
+  "chapterRoads": "//div[@id='stab_1_71']/ul",
+  "chapterResult": ".//li/a",
+  "referer": "http://www.dm6900.com/"
+}
