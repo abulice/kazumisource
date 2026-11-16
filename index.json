@@ -145,10 +145,10 @@
   },
   {
     "name": "DM6900",
-    "version": "1.3",
+    "version": "1.4",
     "useNativePlayer": true,
     "antiCrawlerEnabled": false,
     "author": "abulice",
-    "lastUpdate": 1794833433752
+    "lastUpdate": 1794834101265
   }
 ]
