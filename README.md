@@ -38,9 +38,13 @@ https://cdn.jsdelivr.net/gh/abulice/kazumisource@main/index.json
 
 ### DM6900
 
-- 搜索：`POST /index.php/vod/search2.html`，参数 `searchword`
+- **搜索（易踩坑）**：`usePost: true` 时 Kazumi 会把 searchURL 的 **query 参数当成 POST form body**，
+  并把 URL 上的 query 去掉。所以 searchURL 必须写成
+  `http://www.dm6900.com/index.php/vod/search2.html?searchword=@keyword`
+  —— 只写纯路径会导致 POST body 为空、搜不到任何结果。
 - 列表：`//ul[@id='result']/li`，名字 `.//p[@class='name']`，链接 `.//a[@class='li-hv']`
-- 分集：`//div[@id='stab_1_71']/ul`（每条 `<ul>` 是一条线路），剧集 `.//li/a`
+- 分集：`//ul[starts-with(@id,'ul_playlist_')]`（每条 `<ul>` 是一条线路），剧集 `.//li/a`
+  —— 用 `starts-with` 而非硬编码 `id='stab_1_71'`（其中的 `71` 是站点内部编号，容易变）
 - m3u8：播放页 `var paly_js = "<串>"`，按 `-`→`a`、`_`→`+`、`.`→`=` 还原 Base64；
   站点 `/ya.html?url=<串>&type=bjm3u8` 自行解密后跳 `jisuzyjx.com/play/?url=<明文m3u8>`，
   Kazumi WebView 从 `?url=` 参数捕获
